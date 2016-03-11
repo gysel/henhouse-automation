@@ -1,0 +1,13 @@
+sitemap label="Guggi WG" {
+	Frame label=Huehnerstall {
+		Switch item=OPS_MODE label="Modus" mappings=[0="Zu", 1="Auto", 2="Offen"]
+	}
+	Frame label=Debug {
+		Switch item=RELAY_1
+		Switch item=RELAY_2
+	}
+	Frame label=Environment {
+		Text item=SUNRISE_TIME
+		Text item=SUNSET_TIME
+	}
+}
