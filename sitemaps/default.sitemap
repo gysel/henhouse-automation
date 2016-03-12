@@ -1,6 +1,6 @@
-sitemap label="Guggi WG" {
-	Frame label=Huehnerstall {
-		Switch item=OPS_MODE label="Modus" mappings=[0="Zu", 1="Auto", 2="Offen"]
+sitemap label="Hen house" {
+	Frame label="Door configuration" {
+		Switch item=OPS_MODE label="Mode" mappings=[0="Closed", 1="Auto", 2="Open"]
 	}
 	Frame label=Debug {
 		Switch item=RELAY_1
