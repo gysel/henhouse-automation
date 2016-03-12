@@ -6,7 +6,7 @@ Switch RELAY_1 "Relais 1" { gpio="pin:3 activelow:yes"}
 Switch RELAY_2 "Relais 2" { gpio="pin:4 activelow:yes"}
 
 DateTime SUNRISE_TIME "Sunrise [%1$tH:%1$tM]"  {astro="planet=sun, type=rise, property=start"}
-DateTime SUNSET_TIME "Sunset [%1$tH:%1$tM]"   {astro="planet=sun, type=set, property=end"}
+DateTime SUNSET_TIME "Sunset [%1$tH:%1$tM]"   {astro="planet=sun, type=set, property=end, offset=30"}
 
 Switch SUNRISE_EVENT {astro="planet=sun, type=rise, property=start"}
 Switch SUNSET_EVENT  {astro="planet=sun, type=set, property=end, offset=-30"}
