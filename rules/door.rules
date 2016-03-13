@@ -1,3 +1,4 @@
+import org.openhab.core.library.types.*
 
 rule Startup
 when
@@ -19,7 +20,7 @@ then
     }
     if (OPS_MODE.state == 1) {
     	logInfo("chicken", "set door to auto mode")
-		if (SUNRISE_EVENT == ON) {
+		if (now.isAfter((SUNRISE_TIME.state as DateTimeType).calendar.timeInMillis) && now.isBefore((SUNSET_TIME.state as DateTimeType).calendar.timeInMillis)) {
 	        sendCommand(RELAY_1, ON)
 	        sendCommand(RELAY_2, ON)
 		} else {
