@@ -2,10 +2,6 @@ sitemap label="Hen house" {
 	Frame label="Door configuration" {
 		Switch item=OPS_MODE label="Mode" mappings=[0="Closed", 1="Auto", 2="Open"]
 	}
-	Frame label=Debug {
-		Switch item=RELAY_1
-		Switch item=RELAY_2
-	}
 	Frame label=Environment {
 		Text item=SUNRISE_TIME
 		Text item=SUNSET_TIME
