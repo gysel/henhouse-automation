@@ -1,4 +1,5 @@
 import org.openhab.core.library.types.*
+import org.joda.time.DateTime
 
 rule Startup
 when
@@ -20,7 +21,8 @@ then
     }
     if (OPS_MODE.state == 1) {
     	logInfo("chicken", "set door to auto mode")
-		if (now.isAfter((SUNRISE_TIME.state as DateTimeType).calendar.timeInMillis) && now.isBefore((SUNSET_TIME.state as DateTimeType).calendar.timeInMillis)) {
+    	var DateTime eight = new DateTime().withTime(8,0,0,0)
+		if (now.isAfter(eight) && now.isBefore((SUNSET_TIME.state as DateTimeType).calendar.timeInMillis)) {
 	        sendCommand(RELAY_1, ON)
 	        sendCommand(RELAY_2, ON)
 		} else {
@@ -35,16 +37,27 @@ then
     }
 end
 
-rule SunriseAction
+rule MorningAction
 when
-	Item SUNRISE_EVENT received update ON
+	Time cron "0 0 8 1/1 * ? *" // 8 o'clock every morning
 then
-	logInfo("chicken", "received sunrise event")
+	logInfo("chicken", "time to let the cage fighters out!")
 	if(OPS_MODE.state == 1) {
         sendCommand(RELAY_1, ON)
         sendCommand(RELAY_2, ON)
 	} 
 end
+
+//rule SunriseAction
+//when
+//	Item SUNRISE_EVENT received update ON
+//then
+//	logInfo("chicken", "received sunrise event")
+//	if(OPS_MODE.state == 1) {
+//        sendCommand(RELAY_1, ON)
+//        sendCommand(RELAY_2, ON)
+//	} 
+//end
 
 rule SunsetAction
 when
