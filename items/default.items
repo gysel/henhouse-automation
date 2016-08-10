@@ -9,4 +9,4 @@ DateTime SUNRISE_TIME "Sunrise [%1$tH:%1$tM]"  {astro="planet=sun, type=rise, pr
 DateTime SUNSET_TIME "Sunset [%1$tH:%1$tM]"   {astro="planet=sun, type=set, property=end, offset=15"}
 
 Switch SUNRISE_EVENT {astro="planet=sun, type=rise, property=start"}
-Switch SUNSET_EVENT  {astro="planet=sun, type=set, property=end, offset=30"}
+Switch SUNSET_EVENT  {astro="planet=sun, type=set, property=end, offset=15"}
