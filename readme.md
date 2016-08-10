@@ -23,4 +23,5 @@ astro:interval=3600
 
 # Electronics
 
-(This section follows later...)
+![Electric Circuit](https://raw.githubusercontent.com/gysel/henhouse-automation/master/electric_circuit.jpg)
+
